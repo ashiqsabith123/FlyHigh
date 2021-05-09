@@ -1,0 +1,264 @@
+#include <iostream>
+
+#include <cstring>
+
+using namespace std;
+
+class bankaccount
+
+{
+
+    public:
+
+    char name[20],type[10];
+
+    long int ac_no,bal=0,dep,wd;
+
+    static float roi;
+
+    int temp=0,ac;
+
+void read()
+
+    {
+
+        cout << "Enter Name: ";
+
+        cin >> name;
+
+        cout << "Enter Account Number: ";
+
+        cin >> ac_no;
+
+        do
+
+        {
+
+            cout << "Please Select Your Account Type " << endl;
+
+            cout << "Press 1 If Savings " << endl;
+
+            cout << "Press 2 If Current " << endl;
+
+            cin >> temp;
+
+             if(temp==0 || temp>2)
+
+                cout << " Enter A Valid Input" << endl;
+
+        }
+
+            while(temp==0 || temp>2);
+
+    cout << "Enter The Balance: ";
+
+    cin >> bal;
+
+    cout << ".........................." << endl << endl;
+
+    }
+
+  void deposite()
+
+    {
+
+        cout << "Enter Amount For Deposite";
+
+        cin >> dep;
+
+        bal=bal+dep;
+
+        cout << "The Amount Was Succesfully Deposited " << endl << "Your Balance is: " << bal;
+
+    }
+
+ void display()
+
+    {
+
+       cout << "Welcome Mr/Mrs: " << name << endl;
+
+       cout << "Account Number: " << ac_no << endl;
+
+       if(temp==1)
+
+         cout << "Savings account " << endl;
+
+      else
+
+         cout << "Current Account " << endl;
+
+     cout << "Balance: " << bal;
+
+    }
+
+    void show()
+
+    {
+
+       cout << "Name: " << name << endl;
+
+       cout << "Account Number: " << ac_no << endl;
+
+       if(temp==1)
+
+         cout << "Savings account " << endl;
+
+      else
+
+         cout << "Current Account " << endl;
+
+     cout << "Balance: " << bal;
+
+    }
+
+    void withdrawal()
+
+    {
+
+        cout << "Enter The Amount For Withdrawal ";
+
+        cin >> wd;
+
+        if(bal-wd > 1000)
+
+        {
+
+            bal=bal-wd;
+
+            cout << "Withdrawal Completed" << endl << "Your Balance Is: " << bal << endl;
+
+        }
+
+        else
+
+            cout << "Transaction declined!!! " << endl << "The Account Dosent Cotain Minimum Balance" << endl;
+
+         }
+
+    void intrest()
+
+    {
+
+       float roi1;
+
+      cout << "Enter The Rate Of intrest: ";
+
+        cin >> roi1;
+
+        roi=roi+roi1;
+
+        cout << "Intrest Amount: " << (bal*roi/100) << endl;
+
+       bal= bal+bal*roi/100;
+
+        cout << "Intrest Amount Added To Your Account " << endl << "Balance is: " << bal << endl ;
+
+    }
+
+};
+
+    float bankaccount::roi=5.5;
+
+int main()
+
+{
+
+    int temp1,temp2;
+
+   bankaccount b3;
+
+    cout << "\t\t\tWelcome To State Bank Of India " << endl;
+
+    cout << "\t\t\t-------------------------------" << endl << endl;
+
+    cout << "Please Enter Your Details Below: " << endl;
+
+    cout << "................................" << endl;
+
+    b3.read();
+
+    b3.display();
+
+    cout << endl << endl;
+
+    do{
+
+    do{
+
+    cout << "\t\t\tMENU " << endl;
+
+    cout << "\t\t\t----" << endl;
+
+    cout << "Press 1 For Withdrawal" << endl;
+
+    cout << "Press 2 For Deposite" << endl;
+
+    cout << "Press 3 For Intrest Change" << endl;
+
+    cout << "Press 4 For Details" << endl;
+
+    cin >> temp1;
+
+    switch (temp1)
+
+    {
+
+        case 1:
+
+            b3.withdrawal();
+
+            break;
+
+        case 2:
+
+            b3.deposite();
+
+            break;
+
+        case 3:
+
+            b3.intrest();
+
+            break;
+
+        case 4:
+
+            b3.show();
+
+            break;
+
+        default:
+
+            cout << "Enter A Valid Input! " << endl;
+
+    }
+
+    }
+
+        while(temp1==0 || temp1>4);
+
+    cout << endl << endl;
+
+    cout << " Press 1 For Continue ";
+
+    cout << " Press 0 For Exit ";
+
+    cin >> temp2;
+
+        if(temp2==0)
+
+        {
+
+            cout << endl << endl;
+
+            cout << "\t\t\tTHANK YOU VISIT AGAIN 🌼";
+
+        }
+
+    }
+
+    while (temp2==1);
+
+}
+
